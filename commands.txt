@@ -1,0 +1,15 @@
+Generate stub and Grpc impl
+
+For JS
+- protoc --proto_path=. --js_out=import_style=commonjs,binary:. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:. products.proto
+
+For Python
+- python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. products.proto
+
+
+https://grpc.io/docs/platforms/web/basics/
+
+Run Proxy
+
+- docker build -t grpc-example-envoy:1.0 .
+- docker run --network=host grpc-example-envoy:1.0
